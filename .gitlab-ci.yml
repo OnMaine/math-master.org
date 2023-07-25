@@ -1,0 +1,68 @@
+variables:
+  PROJECT_OWNER: 'onmaine'
+  APP_DOMAIN: tutorial-nuxt.expertchat.me
+  NODE_VERSION: "18.17.0"
+  APP_PATH_PROJECT: /
+  NPM_COMMAND_BUILD: "npm run generate"
+  # DO settings
+  ENABLE_CDN: "OFF"
+  DO_CDN_PURGE_MASK: "\"files\": [\"${APP_DOMAIN}/*\"]"
+  # Google settings
+  ENABLE_GOOGLE_CDN: "ON"
+
+stages:
+  - build
+  - deploy
+
+build_code:
+  stage: build
+  extends:
+    - .building
+  tags:
+    - web
+
+deploy_web2app_server:
+  stage: deploy
+  tags:
+    - 'landings'
+  extends:
+    - .deploy
+  needs: ["build_code"]
+
+deploy_code_cdn:
+  stage: deploy
+  tags:
+    - web
+  extends:
+    - .deploy_cdn
+  needs: ["build_code"]
+
+deploy_code_google_cdn:
+  stage: deploy
+  tags:
+    - web
+  extends:
+    - .deploy_gcdn
+  needs: ["build_code"]
+
+purge_cdn_cache:
+  stage: deploy
+  tags:
+    - web
+  extends:
+    - .purge_cdn_cache
+  needs: ["deploy_web2app_server", "deploy_code_cdn"]
+
+purge_google_cdn_cache:
+  stage: deploy
+  tags:
+    - web
+  extends:
+    - .purge_gcdn_cache
+  needs: ["deploy_web2app_server", "deploy_code_google_cdn"]
+
+include:
+  - project: 'futurra/gitlab-ci-templates'
+    ref: main
+    file: 'web2app_landings.yml'
+

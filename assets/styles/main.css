@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  @apply font-source
+}
+
+.application {
+  height: 100%;
+}
+
+#__nuxt {
+  height: 100%;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+@layer base {
+  h1 {
+    @apply text-6xl;
+  }
+
+  h2 {
+    @apply text-5xl;
+  }
+
+  h3 {
+    @apply text-[40px];
+  }
+
+  h4 {
+    @apply text-[32px];
+  }
+
+  h5 {
+    @apply text-2xl;
+  }
+
+  h6 {
+    @apply text-lg;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-sora
+  }
+
+  p {
+    @apply font-source
+  }
+
+  .border-color {
+    @apply border-[#ECECFF]
+  }
+}
+
+
+@layer components {
+  .btn {
+    @apply px-4 py-2 text-black text-center ease-out transition duration-300 text-sm font-bold;
+  }
+
+  .btn_app {
+    box-shadow: 0px 4px 0px 0px #252231, 0px 6px 0px 0px #252231, 0px 8px 0px 0px #252231;
+
+    @apply flex justify-center items-center text-center py-[18px] px-9 gap-3 border border-neutral-500 rounded-2xl uppercase text-xs leading-5 tracking-[0.42px] font-bold font-source hover:border-custom-800 hover:bg-custom-800 ease-out duration-300
+  }
+
+  .nav-link {
+    @apply md:hover:bg-neutral-200 ease-out transition duration-300 no-underline block;
+  }
+}

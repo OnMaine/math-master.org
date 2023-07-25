@@ -1,0 +1,37 @@
+{
+  "name": "nuxt-app",
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "devDependencies": {
+    "@nuxt/devtools": "latest",
+    "@nuxtjs/eslint-config-typescript": "^12.0.0",
+    "@nuxtjs/eslint-module": "^4.1.0",
+    "@nuxtjs/google-fonts": "^3.0.1",
+    "@nuxtjs/tailwindcss": "^6.8.0",
+    "@types/node": "^18.16.19",
+    "@typescript-eslint/parser": "^5.62.0",
+    "autoprefixer": "^10.4.14",
+    "eslint": "^8.45.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "nuxt": "^3.6.5",
+    "nuxt-icon": "^0.4.2",
+    "postcss": "^8.4.26",
+    "prettier": "^3.0.0",
+    "prettier-plugin-tailwindcss": "^0.4.1",
+    "typescript": "^5.1.6"
+  },
+  "overrides": {
+    "vue": "latest"
+  },
+  "dependencies": {
+    "@headlessui/vue": "^1.7.14",
+    "nuxt-swiper": "^1.2.0"
+  }
+}

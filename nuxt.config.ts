@@ -45,14 +45,14 @@ export default defineNuxtConfig({
 
   devtools: { enabled: true },
   devServerHandlers: [],
-  vite: {
-    build: {
-      rollupOptions: {
-        output: {
-          assetFileNames: 'assets/[name].[hash].[ext]',
-          chunkFileNames: 'js/[name].[hash].js',
-        },
-      },
-    },
-  },
+  // vite: {
+  //   build: {
+  //     rollupOptions: {
+  //       output: {
+  //         assetFileNames: 'assets/[name].[hash].[ext]',
+  //         chunkFileNames: 'js/[name].[hash].js',
+  //       },
+  //     },
+  //   },
+  // },
 })
